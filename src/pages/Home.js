@@ -16,6 +16,7 @@ const Home = () => {
          <li>H2 Integrated Field Addition</li><br/><br/>
          <h4>Architecture/Design</h4><br/>
          <li>Functional Component</li><br/>
+         <li>AWS Cloud Deployment CI/CD Pipeline</li><br/>
       </div>
 
    );
