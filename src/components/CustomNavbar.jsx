@@ -21,7 +21,26 @@ import {  Collapse,
       }
     }*/
 
-const CustomNavBar =()=>{
+const CustomNavBar =(props)=>{
+  
+  const dragStart = e => {
+    const target = e.target
+    e.dataTransfer.setData('fixed', "top"); 
+    
+}
+
+const dragOver = e => {
+    e.stopPropagation();
+}
+
+  const handleMouseMove = e => {
+    if (e.x < this.state.clientX || e.y < e.state.clientY) {
+      setFixedState({ x: e.state.clientX, y: e.state.clientY, fixed: "bottom"});
+    } else  if (e.x > e.state.clientX || e.y > e.state.clientY) {
+      setFixedState({ x: e.state.clientX, y: e.state.clientY, fixed: "top"});
+    }
+  }
+  const [fixedState,setFixedState]=useState({fixed: 'top', x: 0, y: 0})
   const [isOpen,setIsOpen]=useState(false)
     return(
         <div>
@@ -30,7 +49,6 @@ const CustomNavBar =()=>{
             dark
             expand="md"
             fixed=""
-        
             >
         <NavbarBrand tag={ReactLink} to ="/">
           <img
@@ -50,6 +68,10 @@ const CustomNavBar =()=>{
               </NavLink>
             </NavItem>
             <NavItem>
+              <NavLink tag={ReactLink} to ="/onboarding"> Account On-Boarding
+              </NavLink>
+            </NavItem>
+            <NavItem>
               <NavLink tag={ReactLink} to ="/login">Login</NavLink>
             </NavItem>
             <NavItem>
@@ -63,9 +85,7 @@ const CustomNavBar =()=>{
                 <DropdownItem tag={ReactLink} to ="/services">
                   Services
                 </DropdownItem>
-                <DropdownItem tag={ReactLink} to ="/board">
-                  Board
-                </DropdownItem>
+                {/*<DropdownItem tag={ReactLink} to ="/board">Board</DropdownItem>*/}
                 <DropdownItem  tag={ReactLink} to ="/ekyc">
                   eKYC
                 </DropdownItem>
@@ -87,7 +107,7 @@ const CustomNavBar =()=>{
               >
           <NavbarBrand tag={ReactLink} to ="/">
           <img
-                src="/Citizens-Bank-Logo.png"
+                src="/Bank-Logo.png"
                 width="150"
                 className="d-inline-block align-top"
                 alt="Citizens logo"

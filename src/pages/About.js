@@ -1,90 +1,33 @@
 import Base from '../components/Base';
-import React, { useState, useRef, useEffect, useMemo, useCallback} from 'react';
+import React, { useState, useRef, useMemo, useCallback} from 'react';
 import { render } from 'react-dom';
-import { AgGridReact } from 'ag-grid-react'; // the AG Grid React Component
-
-import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, always needed
-import 'ag-grid-community/styles/ag-theme-balham.css'; // Optional theme CSS
+import Board from '../components/Board';
+import Cards from '../components/Cards';
+import {Card} from "react-bootstrap";
 
 const About = () => {
+  
+return (
+<div>
+  <div class="col-sm-12 col-xs-12">
+    <h2>About  Citizens Financial Group, Inc.</h2>
+    <p>Citizens Financial Group, Inc. is one of the nation’s oldest and largest financial institutions, with $226.7 billion in assets as of June 30, 2022. 
+      Headquartered in Providence, Rhode Island, Citizens offers a broad range of retail and commercial banking products and services to individuals, 
+      small businesses, middle-market companies, large corporations and institutions. Citizens helps its customers reach their potential by listening 
+      to them and by understanding their needs in order to offer tailored advice, ideas and solutions. In Consumer Banking, Citizens provides an 
+      integrated experience that includes mobile and online banking, a 24/7 customer contact center and the convenience of approximately 3,300 ATMs 
+      and approximately 1200 branches in 14 states in the New England, Mid-Atlantic and Midwest regions. Consumer Banking products and services 
+      include a full range of banking, lending, savings, wealth management and small business offerings. In Commercial Banking, Citizens offers 
+      a broad complement of financial products and solutions, including lending and leasing, deposit and treasury management services, foreign 
+      exchange, interest rate and commodity risk management solutions, as well as loan syndication, corporate finance, merger and acquisition, 
+      and debt and equity capital markets capabilities. More information is available at <a href="http://www.citizensbank.com">www.citizensbank.com</a> 
+      or visit us on <a href="http://twitter.com/CitizensBank">Twitter</a><u>,</u> <a href="http://www.linkedin.com/company/citizens-bank/">LinkedIn</a>
+      or <a href="http://www.facebook.com/citizensbank/">Facebook</a>.</p>
 
- const gridRef = useRef(); // Optional - for accessing Grid's API
- 
- // Each Column Definition results in one Column.
- const [columnDefs, setColumnDefs] = useState([
-      {headerName: 'Make', field: 'make', sortable: true, filter: true, checkboxSelection: true, rowGroup: false},
-      {headerName: 'Model', field: 'model', sortable: true, filter: true},
-      {headerName: 'Price', field: 'price', sortable: true, filter: true}
-    ]);
+      Find Branch Locations <a href="/atmlocator"> Here </a>
+  </div>
 
-// Set rowData to Array of Objects, one Object per Row
- const [rowData, setRowData] = useState([
-      {make: 'Toyota', model: 'Celica', price: 35000},
-      {make: 'Ford', model: 'Mondeo', price: 32000},
-      {make: 'Porsche', model: 'Boxter', price: 72000},
-      {make: 'BMW', model: 'i3', price: 42400},
-      {make: 'BMW', model: 'X5 XDrive40e', price: 62100},
-      {make: 'Chevy', model: 'Bolt', price: 37495},
-      {make: 'Chevy', model: 'Volt', price: 33220},
-      {make: 'Fiat', model: '500e', price: 31800},
-      {make: 'Ford', model: 'C-Max Energi', price: 37495},      
-      {make: 'Ford', model: 'Fusion Energi', price: 31120},
-      {make: 'Ford', model: 'Focus Electric', price: 29120},
-      {make: 'Mercedez Benz', model: 'B-class', price: 39900},
-      {make: 'Nissan', model: 'LEAF', price: 30680},
-      {make: 'Tesla', model: 'Model S', price: 68000},
-      {make: 'Tesla', model: 'Model X', price: 74000},
-      {make: 'Toyota', model: 'Prius Prime', price: 2784},
-      {make: 'Volkswagen', model: 'e-Golf', price: 28995}
-    ]);
-
-
- // DefaultColDef sets props common to all Columns
- const defaultColDef = useMemo( ()=> ({
-     sortable: true
-   }));
-
- // Example of consuming Grid Event
- const cellClickedListener = useCallback( event => {
-   console.log('cellClicked', event);
- }, []);
-
- // Example load data from sever
- /*useEffect(() => {
-   fetch('https://www.ag-grid.com/example-assets/row-data.json')
-   .then(result => result.json())
-   .then(rowData => setRowData(rowData))
- }, []);*/
-
- // Example using Grid's API
- const buttonListener = useCallback( e => {
-   gridRef.current.api.deselectAll();
- }, []);
-
- return (
-   <div>
-
-
-
-     {/* On div wrapping Grid a) specify theme CSS Class Class and b) sets Grid size */}
-     <div className='ag-theme-balham' style={{width: 500, height: 500, alignItems: "center"}}>
-     {/* Example using Grid's API */}
-     <button onClick={buttonListener}>Deselect All</button>
-       <AgGridReact
-           //ref={gridRef} // Ref for accessing Grid's API
-
-           rowData={rowData} // Row Data for Rows
-
-           columnDefs={columnDefs} // Column Defs for Columns
-           //defaultColDef={defaultColDef} // Default Column Properties
-
-           animateRows={true} // Optional - set to 'true' to have rows animate when sorted
-           rowSelection='multiple' // Options - allows click selection of rows
-           onGridReady={params => this.gridApi = params.api}
-           //onCellClicked={cellClickedListener} // Optional - registering for Grid Event
-           />
-     </div>
-   </div>
+</div>
  );
 };
 

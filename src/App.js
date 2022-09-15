@@ -10,7 +10,9 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Ekyc from './pages/Ekyc';
 import KanbanBoard from "./pages/KanbanBoard"
+import OnBoarding from "./pages/OnBoarding"
 import Base from "./components/Base"
+import ATMLocator from './pages/ATMLocator';
 
 function App() {
   return (
@@ -21,8 +23,10 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/about" element={<About/>}/>
+          <Route path="/atmlocator" element={<ATMLocator/>}/>
           <Route path="/services" element={<Services/>}/>
           <Route path="/board" element={<KanbanBoard/>}/>
+          <Route path="/onboarding" element={<OnBoarding/>}/>
           <Route path="/ekyc" element={<Ekyc/>}/>
         </Routes>
       </Base>
