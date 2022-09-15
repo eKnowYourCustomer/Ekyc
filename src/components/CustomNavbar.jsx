@@ -23,32 +23,48 @@ import {  Collapse,
 
 const CustomNavBar =(props)=>{
   
+  const [fixedState, setFixedState]=useState({fixed: 'top', x: 0, y: 0})
+
   const dragStart = e => {
+    console.log("I am in dragStart");
     const target = e.target
-    e.dataTransfer.setData('fixed', "top"); 
-    
-}
+    handleMouseMove(e);
+  }
 
 const dragOver = e => {
+    console.log("I am in dragOver");
+    handleMouseMove(e);
     e.stopPropagation();
 }
 
   const handleMouseMove = e => {
-    if (e.x < this.state.clientX || e.y < e.state.clientY) {
-      setFixedState({ x: e.state.clientX, y: e.state.clientY, fixed: "bottom"});
-    } else  if (e.x > e.state.clientX || e.y > e.state.clientY) {
-      setFixedState({ x: e.state.clientX, y: e.state.clientY, fixed: "top"});
+    console.log("i am in handleMouseMove");
+    console.log("B4 -> x: " + fixedState.x + " e.clientX: " + e.clientX);
+    console.log("B4 -> y: " + fixedState.y + " e.clienty: " + e.clientY);
+    if (fixedState.y < e.clientY) {
+      setFixedState({ x: 200000, y: 200000, fixed: "bottom"});
+      console.log("changed to bottom " + fixedState.fixed);
+    } else {
+      setFixedState({ x: 0, y: 0, fixed: "top"});
+      console.log("changed to top " + fixedState.fixed);
     }
+    console.log("after -> x: " + fixedState.x + " e.clientX: " + e.clientX);
+    console.log("after -> y: " + fixedState.y + " e.clienty: " + e.clientY);
+
+    //e.stopPropagation();
   }
-  const [fixedState,setFixedState]=useState({fixed: 'top', x: 0, y: 0})
+  
   const [isOpen,setIsOpen]=useState(false)
     return(
         <div>
-      <Navbar 
+      <Navbar
             color="dark"
             dark
             expand="md"
-            fixed=""
+            fixed={fixedState.fixed}
+            onDragStart={dragStart}
+            onDragOver={dragOver}
+            draggable='true'
             >
         <NavbarBrand tag={ReactLink} to ="/">
           <img
@@ -99,45 +115,6 @@ const dragOver = e => {
           
         </Collapse>
       </Navbar>
-      <Navbar 
-              color="dark"
-              dark
-              expand="md"
-              fixed="bottom"        
-              >
-          <NavbarBrand tag={ReactLink} to ="/">
-          <img
-                src="/Bank-Logo.png"
-                width="150"
-                className="d-inline-block align-top"
-                alt="Citizens logo"
-              />
-            </NavbarBrand>
-          <NavbarToggler onClick={()=>setIsOpen(!isOpen)}
-              
-          />
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="me-auto" navbar>
-              <NavItem>
-                <NavLink tag={ReactLink} to ="/personal"> Personal
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={ReactLink} to ="/smallbusiness">Small Business</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={ReactLink} to ="/corporate">Corporate</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={ReactLink} to ="/financialeducation">Financial Education</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={ReactLink} to ="/aboutus">About Us</NavLink>
-              </NavItem>
-            </Nav>
-            
-          </Collapse>
-        </Navbar>
     </div>
 
     );
