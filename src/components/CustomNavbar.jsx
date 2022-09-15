@@ -9,7 +9,7 @@ import {  Collapse,
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
+    Dropdown,
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
@@ -22,8 +22,12 @@ import {  Collapse,
     }*/
 
 const CustomNavBar =(props)=>{
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen((prevState) => !prevState);
   
-  const [fixedState, setFixedState]=useState({fixed: 'top', x: 0, y: 0})
+  const [fixedState, setFixedState]=useState({x: 0, y: 0, fixed: 'top', direction: 'down'})
 
   const dragStart = e => {
     handleMouseMove(e);
@@ -36,9 +40,9 @@ const dragOver = e => {
 
   const handleMouseMove = e => {
     if (fixedState.y < e.clientY) {
-      setFixedState({ x: 200000, y: 200000, fixed: "bottom"});
+      setFixedState({ x: 200000, y: 200000, fixed: "bottom", direction: 'up'});
     } else {
-      setFixedState({ x: 0, y: 0, fixed: "top"});
+      setFixedState({ x: 0, y: 0, fixed: "top", direction: 'down'});
     }
   }
   
@@ -82,7 +86,7 @@ const dragOver = e => {
             <NavItem>
               <NavLink tag={ReactLink} to ="/signup">Signup</NavLink>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
+            <Dropdown nav inNavbar isOpen={dropdownOpen} toggle={toggle} direction={fixedState.direction}>
               <DropdownToggle nav caret>
                 More
               </DropdownToggle>
@@ -99,7 +103,7 @@ const dragOver = e => {
                   Contact Us
                 </DropdownItem>
               </DropdownMenu>
-            </UncontrolledDropdown>
+            </Dropdown>
           </Nav>
           
         </Collapse>
