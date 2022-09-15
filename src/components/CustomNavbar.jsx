@@ -26,32 +26,20 @@ const CustomNavBar =(props)=>{
   const [fixedState, setFixedState]=useState({fixed: 'top', x: 0, y: 0})
 
   const dragStart = e => {
-    console.log("I am in dragStart");
-    const target = e.target
     handleMouseMove(e);
   }
 
 const dragOver = e => {
-    console.log("I am in dragOver");
     handleMouseMove(e);
     e.stopPropagation();
 }
 
   const handleMouseMove = e => {
-    console.log("i am in handleMouseMove");
-    console.log("B4 -> x: " + fixedState.x + " e.clientX: " + e.clientX);
-    console.log("B4 -> y: " + fixedState.y + " e.clienty: " + e.clientY);
     if (fixedState.y < e.clientY) {
       setFixedState({ x: 200000, y: 200000, fixed: "bottom"});
-      console.log("changed to bottom " + fixedState.fixed);
     } else {
       setFixedState({ x: 0, y: 0, fixed: "top"});
-      console.log("changed to top " + fixedState.fixed);
     }
-    console.log("after -> x: " + fixedState.x + " e.clientX: " + e.clientX);
-    console.log("after -> y: " + fixedState.y + " e.clienty: " + e.clientY);
-
-    //e.stopPropagation();
   }
   
   const [isOpen,setIsOpen]=useState(false)
@@ -61,6 +49,7 @@ const dragOver = e => {
             color="dark"
             dark
             expand="md"
+            position="sticky"
             fixed={fixedState.fixed}
             onDragStart={dragStart}
             onDragOver={dragOver}
