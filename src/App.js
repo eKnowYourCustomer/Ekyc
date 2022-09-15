@@ -13,6 +13,7 @@ import KanbanBoard from "./pages/KanbanBoard"
 import OnBoarding from "./pages/OnBoarding"
 import Base from "./components/Base"
 import ATMLocator from './pages/ATMLocator';
+import ApplicationForm from './pages/ApplicationForm';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/atmlocator" element={<ATMLocator/>}/>
+          <Route path="/appform" element={<ApplicationForm/>}/>
           <Route path="/services" element={<Services/>}/>
           <Route path="/board" element={<KanbanBoard/>}/>
           <Route path="/onboarding" element={<OnBoarding/>}/>

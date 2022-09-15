@@ -5,6 +5,11 @@ import Cards from '../components/Cards';
 import {Card} from "react-bootstrap";
 
 const OnBoarding=()=>{
+
+  const openInNewTab = url => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="OnBoarding">
       
@@ -14,7 +19,7 @@ const OnBoarding=()=>{
           <Cards id="card-1.1" className="card" draggable="true">
             <Card>
               <Card.Body>
-                <Card.Title  align="center" ><button class="btn btn-primary" type="submit">Open Account</button></Card.Title>
+                <Card.Title  align="center" ><button class="btn btn-primary" type="submit" onClick={() => openInNewTab('/appform')}>Open Account</button></Card.Title>
               </Card.Body>
             </Card>
           </Cards>
@@ -47,7 +52,7 @@ const OnBoarding=()=>{
           <Cards id="card-2.1" className="card" draggable="true">
             <Card>
               <Card.Body>
-                <Card.Title  align="center" ><button class="btn btn-primary" type="submit">Open Account</button></Card.Title>
+                <Card.Title  align="center" ><button class="btn btn-primary" type="submit" onClick={() => openInNewTab('/appform')}>Open Account</button></Card.Title>
               </Card.Body>
             </Card>
             </Cards>
@@ -83,7 +88,7 @@ const OnBoarding=()=>{
           <Cards id="card-3.1" className="card" draggable="true">
           <Card>
               <Card.Body>
-              <Card.Title  align="center" ><button class="btn btn-primary" type="submit">Open Account</button></Card.Title>
+              <Card.Title  align="center" ><button class="btn btn-primary" type="submit" onClick={() => openInNewTab('/appform')}>Open Account</button></Card.Title>
               </Card.Body>
             </Card>
           </Cards>

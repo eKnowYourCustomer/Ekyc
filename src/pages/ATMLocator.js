@@ -97,6 +97,7 @@ const onBtHide = useCallback(() => {
 
  return (
    <div>
+            <h2>Branch Locations</h2>
      {/* On div wrapping Grid a) specify theme CSS Class Class and b) sets Grid size */}
      <div className='ag-theme-alpine' style={{width: 1000, height: 600, alignItems: "center"}}>
      {/* Example using Grid's API */}
