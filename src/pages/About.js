@@ -23,8 +23,6 @@ return (
       and debt and equity capital markets capabilities. More information is available at <a href="http://www.citizensbank.com">www.citizensbank.com</a> 
       or visit us on <a href="http://twitter.com/CitizensBank">Twitter</a><u>,</u> <a href="http://www.linkedin.com/company/citizens-bank/">LinkedIn</a>
       or <a href="http://www.facebook.com/citizensbank/">Facebook</a>.</p>
-
-      Find Branch Locations <a href="/atmlocator"> Here </a>
   </div>
 
 </div>

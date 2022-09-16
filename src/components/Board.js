@@ -3,13 +3,8 @@ import React from 'react'
 const Board = (props) => {
     const drop = e => {
         e.preventDefault();
-
-        // key of the card to be fetched is passed
-        const card_id = e.dataTransfer.getData('card_id');
-        const card = document.getElementById(card_id);
-
+        const card = document.getElementById(e.dataTransfer.getData('target_id'));
         e.target.appendChild(card);
-        
     }
 
     const dragOver = e => {
@@ -21,6 +16,7 @@ const Board = (props) => {
             className={props.className}
             onDrop={drop}
             onDragOver={dragOver}
+            width = {props.width}
         >
             {props.children}
         </div>

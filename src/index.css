@@ -51,10 +51,15 @@ code {
   padding: 0px 15px;
   background-color: white;
   height: fit-content;
+  width: 95%;
   cursor: pointer;
   margin: 8px;
   height: 25%;
+  align-items:center;
   color: rgb(3, 3, 66)
+}
+.img {
+  align-items:center;
 }
 
 h3{

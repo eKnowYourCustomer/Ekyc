@@ -19,8 +19,8 @@ class Confirmation extends Component{
 
         return(
             <Container>
-                <h1>Confirm your Details</h1>
-                <p>Confirm if the following details are correct.</p>
+                <h1>Confirmation</h1>
+                <p>Please confirm if the following details are correct.</p>
                 <p>First Name: {firstName}</p>
                 <p>Last Name: {lastName}</p>
                 <p>Email: {email}</p>

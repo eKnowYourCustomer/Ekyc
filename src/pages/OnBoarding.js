@@ -13,6 +13,8 @@ const OnBoarding=()=>{
   return (
     <div className="OnBoarding">
       
+      <p align='right'>Find Branch Locations <a href="/atmlocator"> Here </a></p>
+
       <main className="flexbox"> 
         <Board id="board-1" className="board">
           <h3>One Deposit Checking From Citizens</h3>

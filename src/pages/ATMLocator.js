@@ -1,5 +1,6 @@
 import Base from '../components/Base';
 import React, { useState, useRef, useMemo, useCallback} from 'react';
+import {Container, Row, Col, Button} from 'react-bootstrap';
 import { render } from 'react-dom';
 import { AgGridReact } from 'ag-grid-react'; // the AG Grid React Component
 
@@ -91,20 +92,37 @@ const onBtHide = useCallback(() => {
  }, []);
 
  // Example using Grid's API
- const buttonListener = useCallback( e => {
+ const deselAllButtonListener = useCallback( e => {
    gridRef.current.api.deselectAll();
  }, []);
 
+ const selAllButtonListener = useCallback( e => {
+  gridRef.current.api.selectAll();
+}, []);
+
+const onBtExport = useCallback(e => {
+  gridRef.current.api.exportDataAsExcel({
+    onlySelected: true
+  });
+}, []);
+
  return (
-   <div>
+   <div align='center'>
             <h2>Branch Locations</h2>
      {/* On div wrapping Grid a) specify theme CSS Class Class and b) sets Grid size */}
-     <div className='ag-theme-alpine' style={{width: 1000, height: 600, alignItems: "center"}}>
+     <div className='ag-theme-alpine' style={{width: 1600, height: 700, alignItems: "center"}}>
      {/* Example using Grid's API */}
-     <button onClick={onBtShowLoading}>Show Loading Overlay</button>
-     <button onClick={onBtShowNoRows}>Show No Rows Overlay</button>
-     <button onClick={onBtHide}>Hide Overlay</button>
-     <button onClick={buttonListener}>Deselect All</button>
+     <Container>
+      <Row>
+        <Col><Button variant='secondary' size="sm" onClick={onBtShowLoading}>Show Loading Overlay</Button></Col>
+        <Col><Button variant='secondary' size="sm" onClick={onBtShowNoRows}>Show No Rows Overlay</Button></Col>
+        <Col><Button variant='secondary' size="sm" onClick={onBtHide}>Hide Overlay</Button></Col>
+        <Col><Button variant='secondary' size="sm" onClick={selAllButtonListener}>Select All</Button></Col>
+        <Col><Button variant='secondary' size="sm" onClick={deselAllButtonListener}>Deselect All</Button></Col>
+        <Col><Button variant='secondary' size="sm" onClick={onBtExport}>Export Selected</Button></Col>
+
+     </Row>
+     </Container>
        <AgGridReact
            ref={gridRef}
            rowData={rowData} // Row Data for Rows
@@ -120,6 +138,8 @@ const onBtHide = useCallback(() => {
            animateRows={true} // Optional - set to 'true' to have rows animate when sorted
            rowSelection='multiple' // Options - allows click selection of rows
            onGridReady={onGridReady}
+           pagination='true'
+           paginationPageSize='25'
         />
      </div>
    </div>

@@ -91,8 +91,8 @@ const dragOver = e => {
                 More
               </DropdownToggle>
               <DropdownMenu end>
-                <DropdownItem tag={ReactLink} to ="/services">
-                  Services
+                <DropdownItem tag={ReactLink} to ="/products">
+                  Our Products
                 </DropdownItem>
                 {/*<DropdownItem tag={ReactLink} to ="/board">Board</DropdownItem>*/}
                 <DropdownItem  tag={ReactLink} to ="/ekyc">

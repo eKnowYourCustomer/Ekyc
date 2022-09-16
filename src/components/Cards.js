@@ -3,7 +3,7 @@ import React from 'react'
 const Cards = (props) => {
     const dragStart = e => {
         const target = e.target
-        e.dataTransfer.setData('card_id', target.id); 
+        e.dataTransfer.setData('target_id', target.id); 
         
     }
 
