@@ -24,7 +24,17 @@ return (
       or visit us on <a href="http://twitter.com/CitizensBank">Twitter</a><u>,</u> <a href="http://www.linkedin.com/company/citizens-bank/">LinkedIn</a>
       or <a href="http://www.facebook.com/citizensbank/">Facebook</a>.</p>
   </div>
-
+  <div><h2>Implemented features:</h2>
+         <h4>Flexible UI</h4>
+         <li>Bootstrap UI Design</li>
+         <li>React Dropdown in Navigation bar</li>
+         <li>React Data Grid (AgGrid) in About tab</li>
+         <h4>Configurable UI</h4>
+         <li>H2 Integrated Field Addition</li><br/>
+         <h4>Architecture/Design</h4>
+         <li>Functional Component</li>
+         <li>AWS Cloud Deployment CI/CD Pipeline</li><br/>
+      </div>
 </div>
  );
 };

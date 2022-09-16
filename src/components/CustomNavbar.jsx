@@ -80,12 +80,7 @@ const dragOver = e => {
               <NavLink tag={ReactLink} to ="/onboarding"> Account On-Boarding
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink tag={ReactLink} to ="/login">Login</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={ReactLink} to ="/signup">Signup</NavLink>
-            </NavItem>
+            
             <Dropdown nav inNavbar isOpen={dropdownOpen} toggle={toggle} direction={fixedState.direction}>
               <DropdownToggle nav caret>
                 More
@@ -104,6 +99,14 @@ const dragOver = e => {
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
+
+            <NavItem className="loginKyc">
+              <NavLink tag={ReactLink} to ="/login">Login</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={ReactLink} to ="/signup">Signup</NavLink>
+            </NavItem>
+
           </Nav>
           
         </Collapse>
